@@ -1,8 +1,8 @@
 import pypyodbc
 
 #---------------------------------------------
-#     Conexion a una base de datos Oracle
-#        utilizando la librería pyodbc
+#-----Conexion a una base de datos Oracle-----
+#--------utilizando la librería pyodbc--------
 #---------------------------------------------
 
 #Si no encontramos el driver, descomentar
@@ -80,3 +80,6 @@ print(row)
 #Borrado
 cursor.execute("DELETE FROM POBLACION WHERE dni = 999999999")
 cursor.commit()
+#Cerramos conexion y cursor
+cursor.close()
+conn.close()
