@@ -88,7 +88,16 @@ def mostrarPoblacion(conexion):
         print("----------------------------------------------------------------")
     cursor.close()
 
+"""
+    Método definido para buscar a una persona
+    Parámetros:
+        conexion: almacena la conexión creada anteriormente
+        dni: el dni de la persona a buscar
+    return:
+        persona: devuelve la tupla rescatada de la base de datos
+"""
 def buscarPersona(conexion,dni):
+    print("---------BUSCAR PERSONA--------")
     #Se obtiene el cursor
     cursor = conexion.cursor()
 
@@ -159,6 +168,8 @@ def insertarPoblacion(conexion,dni,nombre,apellido1,apellido2,
 def actualizarUsuario(conexion,dni,nombre,apellido1,apellido2,
                       direccion,fechanac,cp,sexo,ingresos,gastosfijos,gastosalim,
                       gastosropa,sector):
+    print("-----ACTUALIZACIÓN DE UNA PERSONA-----")
+
     #Se obtiene el cursor
     cursor = conexion.cursor()
 
@@ -178,24 +189,7 @@ def actualizarUsuario(conexion,dni,nombre,apellido1,apellido2,
     #Se cierra el cursor
     cursor.close()
 
-"""
-    Método para borrar un usuario de la base de datos
-    Parámetros:
-        conexion: almacena la conexión de la base de datos.
-        dni: dni de la persona a borrar.
-"""
-def borrarUsuario(conexion,dni):
-    print("-----ACTUALIZACIÓN DE UNA PERSONA-----")
-    # Se obtiene el cursor
-    cursor = conexion.cursor()
-    #Se ejecuta la consulta
-    cursor.execute("DELETE FROM POBLACION WHERE dni='?'",[dni])
 
-    #Se ejecuta el commit para que se haga efectivo el cambio
-    cursor.commit()
-
-    #Se cierra el cursor
-    cursor.close()
 
 
 ###LLAMADAS A PROCEDIMIENTOS###
